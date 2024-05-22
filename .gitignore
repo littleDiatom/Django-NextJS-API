@@ -1,0 +1,5 @@
+../.gitignore*.pyc
+*.pyc
+shop/__pycache__/*.pycgit 
+admin/__pycache__/*.pyc
+users/__pycache__/*.pyc
