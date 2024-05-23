@@ -1,4 +1,4 @@
-# API de gestion de projet
+# API de gestion de produits
 
 ## Introduction
 Le but de ce projet est de créer une API de gestion de produits liés à une base de données. Pour cela, le stack techinique utilisé est le suivant:
