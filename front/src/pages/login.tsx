@@ -1,32 +1,26 @@
 import React from "react";
 import { useFormik } from "formik";
 import { login } from "../../lib/api";
-import axios from "../../node_modules/axios/index";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-export const LoginForm = () => {
-  const handleLogout = async () => {
-    try {
-      await axios.get("/login/");
-      alert("Logged out successfully");
-    } catch {
-      alert("Failed to logout.");
-    }
-  };
-
-  const handleSubmit = async (values: any) => {
-    try {
-      const response = await login(values);
-      alert("Logged successfully");
-    } catch (error) {
-      console.error("Login failed:", error);
-      alert("Login failed. Please try again.");
-    }
-  };
-
+const LoginForm = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
+    },
+    onSubmit: async (values: any) => {
+      try {
+        const router = useRouter();
+        const [route, setRoute] = useState();
+        const response = await login(values);
+        alert("Logged successfully");
+        return Response.redirect(new URL("/products"));
+      } catch (error) {
+        console.error("Login failed:", error);
+        alert("Login failed. Please try again.");
+      }
     },
   });
 
@@ -50,8 +44,9 @@ export const LoginForm = () => {
         value={formik.values.password}
       />
 
-      <button type="submit">Connexion</button>
-      <button onClick={() => handleLogout()}>Déconnexion</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
+
+export default LoginForm;
