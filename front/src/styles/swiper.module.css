@@ -1,0 +1,23 @@
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiperSlide {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 80%;
+}
+
+.swiperSlideImg {
+  display: block;
+  width: 100%;
+}
+
+.swiperPagination {
+  position: relative;
+  width: 15rem !important;
+  bottom: 1rem;
+}
